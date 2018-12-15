@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Psychic-Game</title>
+</head>
+
+<body>
+    <header>
+        <h1>Psyche-Game</h1>
+        <p>
+            wins
+            <span id="wins-text">0</span>
+        </p>
+
+        <p>Looses</p>
+        <p>Guesses left</p>
+        <p>Your Guesses so far</p>
+
+    </header>
+    <script>
+
+        var wins = 0;
+        var losses = 0
+        var guessesLeft = 16
+        var yourGuess = 0
+
+        var winsText = document.getElementById("wins-text");
+
+        var abc = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",]
+        // computer picks a ramdom# 0 to 25 for alphabet
+        var computerPicks = abc[Math.floor(Math.random() * abc.length)];
+        console.log(computerPicks);
+        // This function is run whenever the user presses a key.
+        document.onkeyup = function (event) {
+
+            // Determines which key was pressed.
+            var userGuess = event.key;
+
+            // if userquess = computerquess the user wins
+            //userscore + 1
+            if (userGuess === computerPicks) {
+                alert("win");
+                wins++;
+                winsText.textContent = wins;
+
+            }
+
+            // if it does not match then the computer wins
+            //  computerscore + 1
+        }
+
+    </script>
+</body>
+
+</html>
